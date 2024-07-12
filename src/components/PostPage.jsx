@@ -9,15 +9,7 @@ import { useDispatch } from "react-redux";
 
 const PostPage = ({ posts, handleDelete }) => {
   const { id } = useParams();
-  const data = posts.find((post) => post.id.toString() === id);
-
-  // Bu kodlarni har safar refresh qilganimda state undefined bolib qolayvergani uchun yozdim
-  const post = data || localStorage.getItem("loggedPostForApp");
-
-  useEffect(() => {
-    localStorage.setItem("loggedPostForApp", JSON.stringify(data));
-  }, []);
-  // ==================
+  const post = posts.find((post) => post.id.toString() === id);
 
   const dispatch = useDispatch();
 
